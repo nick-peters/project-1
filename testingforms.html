@@ -1,24 +1,55 @@
 <!DOCTYPE>
 <html>
   <head>
+    <title>Testing Forms</title>
+    <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <form>
-      <p>How tired are you?</p>
-      <select name="tiredness">
-        <option value="tired">Tired</option>
-        <option value="reallyTired">Really Tired</option>
-        <option value="exhausted">Exhausted</option>
-      </select>
-    </form>
-    <form>
-      <p>Tell us why you're so tired...</p>
-      <textarea name="explanation" cols="40" rows="8">Write your explanation here...</textarea>
-    </form>
-    <form>
-      <p>Upload a profile photo:</p>
-      <input type="file" name="profilePhoto"/><br /><br />
-      <input type="submit" value="Upload It!"/>
-    </form>
+
+    <section>
+      <form id="tiredness" class="tirednessClass">
+        <p>How tired are you?</p>
+        <select name="tiredness">
+          <option value="tired">Tired</option>
+          <option value="reallyTired">Really Tired</option>
+          <option value="exhausted">Exhausted</option>
+        </select>
+      </form>
+    </section>
+
+    <section>
+      <form id="explanation" class="explanationClass">
+        <p>Tell us why you're so tired...</p>
+        <textarea name="explanation" cols="40" rows="8">Write your explanation here...</textarea>
+      </form>
+    </section>
+
+    <section>
+      <form id="photo" class="photoClass">
+        <p>Upload a profile photo:</p>
+        <input type="file" name="profilePhoto"/><br /><br />
+        <input type="submit" value="Upload It!"/>
+      </form>
+    </section>
+
+    <section>
+      <ul>The List
+        <li class="tirednessClass">How tired are you?</li>
+        <li class="explanationClass">Why are you so tired?</li>
+        <li class="photoClass">Profile photo</li>
+      </ul>
+    </section>
+    <script>
+
+      var formElements = document.getElementsByTagName("form");
+      var listElements = document.getElementsByTagName("li");
+      var currentHighlight;
+
+      for(var i = 0;i < listElements.length; i++) {
+        listElements[i].className = "highlight";
+      }
+
+    </script>
+    <button type="button">Click</button>
   </body>
 </html>
