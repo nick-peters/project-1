@@ -6,8 +6,8 @@
   </head>
   <body>
 
-    <section>
-      <form id="tiredness" class="tirednessClass">
+    <section id="tiredness" class="forms">
+      <form>
         <p>How tired are you?</p>
         <select name="tiredness">
           <option value="tired">Tired</option>
@@ -17,15 +17,15 @@
       </form>
     </section>
 
-    <section>
-      <form id="explanation" class="explanationClass">
+    <section id="explanation" class="forms">
+      <form>
         <p>Tell us why you're so tired...</p>
         <textarea name="explanation" cols="40" rows="8">Write your explanation here...</textarea>
       </form>
     </section>
 
-    <section>
-      <form id="photo" class="photoClass">
+    <section id="photo" class="forms">
+      <form>
         <p>Upload a profile photo:</p>
         <input type="file" name="profilePhoto"/><br /><br />
         <input type="submit" value="Upload It!"/>
@@ -41,15 +41,32 @@
     </section>
     <script>
 
-      var formElements = document.getElementsByTagName("form");
-      var listElements = document.getElementsByTagName("li");
+      var formElements;
+      var listElements;
       var currentHighlight;
 
-      for(var i = 0;i < listElements.length; i++) {
-        listElements[i].className = "highlight";
+
+      // function setup() {
+      //   formElements = document.getElementsByTagName("form");
+      //   listElements = document.getElementsByTagName("li");
+      // }
+
+      // window.addEventListener('load', setup, false);
+      listElements = document.getElementsByTagName("li");
+      formElements = document.querySelectorAll(".forms");
+
+      // for(var i = 0; i < listElements.length; i++) {
+      //   listElements[i].addEventListener('focus', function() {listElements[i].style.backgroundColor = "red"}, false);
+      //   listElements[i].addEventListener('blur', function() {listElements[i].style.backgroundColor = "white"}, false);
+      // }
+
+      console.log(formElements.length)
+      for(var i = 0; i < formElements.length; i++) {
+        formElements[i].addEventListener('mouseover', function(event) {event.target.style.backgroundColor = "red"}, false);
+        formElements[i].addEventListener('mouseout', function(event) {event.target.style.backgroundColor = "white"}, false);
       }
 
     </script>
-    <button type="button">Click</button>
+    <button>Click</button>
   </body>
 </html>
